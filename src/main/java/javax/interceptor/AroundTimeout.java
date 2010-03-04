@@ -32,7 +32,7 @@ import java.lang.annotation.Target;
  * public Object <METHOD>(InvocationContext) throws Exception
  * 
  * @author <a href="mailto:cdewolf@redhat.com">Carlo de Wolf</a>
- * @version $Revision: $
+ * @version $Revision$
  * @since 3.1
  */
 @Target(value=METHOD)
