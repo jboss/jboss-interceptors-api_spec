@@ -18,20 +18,23 @@
 
 package javax.interceptor;
 
+import static java.lang.annotation.ElementType.METHOD;
+import static java.lang.annotation.RetentionPolicy.RUNTIME;
+
 import java.lang.annotation.Retention;
 import java.lang.annotation.Target;
 
-import static java.lang.annotation.ElementType.*;
-import static java.lang.annotation.RetentionPolicy.*;
-
 /**
- * Defines an interceptor method. The method must have the signature:
- * public Object <METHOD>(InvocationContext) throws Exception
- * 
- * @author <a href="mailto:kabir.khan@jboss.org">Kabir Khan</a>
- * @version $Revision$
+ * Defines a method which intercepts invocation of another method.  The annotated method must not be final, must not be
+ * static, and must accept exactly one parameter of type {@link InvocationContext}, returning an {@link Object}.
+ * <p/>
+ * The annotation may be applied a method of the target class (or a superclass thereof), or to a method of any
+ * interceptor class; however only one method of the class may be so annotated.
+ * <p/>
+ * An {@code @AroundInvoke} interceptor method can invoke any component or resource that the method it is intercepting
+ * can invoke.  In particular, the same transaction and security contexts apply to the interceptor method as to the
+ * intercepted method.
  */
-
-@Target({METHOD}) @Retention(RUNTIME)
-public @interface AroundInvoke {
-}
+@Target(METHOD)
+@Retention(RUNTIME)
+public @interface AroundInvoke {}

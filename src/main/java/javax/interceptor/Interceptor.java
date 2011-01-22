@@ -26,13 +26,11 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.Target;
 
 /**
- * Specifies that a class is an interceptor.
- *
- * @author Gavin King
- *
+ * Explicitly specify that a class is an interceptor class.  Note that in many cases, it is possible for the container
+ * to implicitly determine that a class is an interceptor class without the presence of this annotation; in particular,
+ * a deployment descriptor or {@link Interceptors @Interceptors} annotation can also identify an interceptor class.
  */
-
-@Retention(RUNTIME)
 @Target(TYPE)
+@Retention(RUNTIME)
 @Documented
 public @interface Interceptor {}

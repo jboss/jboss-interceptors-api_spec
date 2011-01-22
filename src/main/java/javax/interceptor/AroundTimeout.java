@@ -25,16 +25,16 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.Target;
 
 /**
- * Defines an interceptor for a timeout method. The method must have the signature:
- * public Object <METHOD>(InvocationContext) throws Exception
- * 
- * @author <a href="mailto:cdewolf@redhat.com">Carlo de Wolf</a>
- * @version $Revision$
- * @since 3.1
+ * Defines a method which intercepts invocation of a timeout method.  The annotated method must not be final, must not
+ * be static, and must accept exactly one parameter of type {@link InvocationContext}, returning an {@link Object}.
+ * <p/>
+ * The annotation may be applied a method of the target class (or a superclass thereof), or to a method of any
+ * interceptor class; however only one method of the class may be so annotated.
+ * <p/>
+ * An {@code @AroundTimeout} interceptor method can invoke any component or resource that the timeout method it is
+ * intercepting can invoke.  In particular, the same transaction and security contexts apply to the interceptor method
+ * as to the timeout method.
  */
-
-@Target(value=METHOD)
-@Retention(value=RUNTIME)
-public @interface AroundTimeout {
-
-}
+@Target(METHOD)
+@Retention(RUNTIME)
+public @interface AroundTimeout {}

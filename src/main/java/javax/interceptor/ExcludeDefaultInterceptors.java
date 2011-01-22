@@ -26,12 +26,9 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.Target;
 
 /**
- * 
- * @author <a href="kabir.khan@jboss.com">Kabir Khan</a>
- * @version $Revision$
+ * Exclude the invocation of default interceptors for a method.  This annotation applies to a method
+ * that would otherwise be subject to interception.
  */
-
-@Target({TYPE, METHOD}) @Retention(RUNTIME)
-public @interface ExcludeDefaultInterceptors {
-
-}
+@Target({ TYPE, METHOD })
+@Retention(RUNTIME)
+public @interface ExcludeDefaultInterceptors {}

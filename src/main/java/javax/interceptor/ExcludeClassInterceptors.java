@@ -25,12 +25,9 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.Target;
 
 /**
- * 
- * @author <a href="kabir.khan@jboss.com">Kabir Khan</a>
- * @version $Revision$
+ * Exclude the invocation of class-level interceptors for a method.  This annotation applies to a method
+ * that would otherwise be subject to interception.
  */
-
-@Target({METHOD}) @Retention(RUNTIME)
-public @interface ExcludeClassInterceptors {
-
-}
+@Target(METHOD)
+@Retention(RUNTIME)
+public @interface ExcludeClassInterceptors {}
