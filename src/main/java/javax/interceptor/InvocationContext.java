@@ -1,5 +1,6 @@
 package javax.interceptor;
 
+import java.lang.reflect.Constructor;
 import java.lang.reflect.Method;
 import java.util.Map;
 
@@ -25,6 +26,16 @@ public interface InvocationContext {
      * @return the invoked method, or {@code null} if none applies to the current invocation context
      */
     Method getMethod();
+
+    /**
+     * Returns the constructor of the target class for which the interceptor
+     * was invoked.  For {@link AroundConstruct} interceptor, the constructor of the
+     * target class is returned. For all other interceptors,
+     * a null value is returned.
+     *
+     * @return the constructor, or a null value
+     */
+    public Constructor getConstructor();
 
     /**
      * Get the parameters of the method invocation (for method interceptors).
