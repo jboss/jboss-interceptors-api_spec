@@ -20,6 +20,6 @@ public @interface Interceptors {
      *
      * @return the interceptor classes
      */
-    @SuppressWarnings("unchecked") // By spec, this returns a raw type.  Don't mess with the spec.
+    @SuppressWarnings({ "rawtypes" }) // By spec, this returns a raw type.  Don't mess with the spec.
     Class[] value();
 }
