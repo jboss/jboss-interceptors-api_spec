@@ -35,7 +35,7 @@ public interface InvocationContext {
      *
      * @return the constructor, or a null value
      */
-    public Constructor getConstructor();
+    public Constructor<?> getConstructor();
 
     /**
      * Get the parameters of the method invocation (for method interceptors).

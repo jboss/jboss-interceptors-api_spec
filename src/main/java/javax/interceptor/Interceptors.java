@@ -1,15 +1,17 @@
 package javax.interceptor;
 
+import static java.lang.annotation.ElementType.CONSTRUCTOR;
+import static java.lang.annotation.ElementType.METHOD;
+import static java.lang.annotation.ElementType.TYPE;
+import static java.lang.annotation.RetentionPolicy.RUNTIME;
+
 import java.lang.annotation.Retention;
 import java.lang.annotation.Target;
-
-import static java.lang.annotation.ElementType.*;
-import static java.lang.annotation.RetentionPolicy.*;
 
 /**
  * Declares the list of interceptors (by interceptor class) which apply to the annotated class or method.
  */
-@Target({ TYPE, METHOD })
+@Target({ TYPE, METHOD, CONSTRUCTOR })
 @Retention(RUNTIME)
 public @interface Interceptors {
 
@@ -18,6 +20,6 @@ public @interface Interceptors {
      *
      * @return the interceptor classes
      */
-    @SuppressWarnings("unchecked") // By spec, this returns a raw type.  Don't mess with the spec.
+    @SuppressWarnings({ "rawtypes" }) // By spec, this returns a raw type.  Don't mess with the spec.
     Class[] value();
 }
