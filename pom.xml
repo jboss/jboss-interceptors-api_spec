@@ -6,7 +6,7 @@
   <parent>
     <groupId>org.jboss</groupId>
     <artifactId>jboss-parent</artifactId>
-    <version>10</version>
+    <version>25</version>
   </parent>
   
   <groupId>org.jboss.spec.javax.interceptor</groupId>
@@ -84,7 +84,11 @@
             <manifest>
               <addDefaultSpecificationEntries>false</addDefaultSpecificationEntries>
             </manifest>
+            <manifestEntries>
+              <Automatic-Module-Name>beta.jboss.interceptor.api_1_2</Automatic-Module-Name>
+            </manifestEntries>
           </archive>
+          
           <instructions>
             <Specification-Title>The Java(TM) EE  Interceptors 1.2 API classes from JSR 318</Specification-Title>
             <Specification-Vendor>Oracle</Specification-Vendor>
@@ -106,7 +110,6 @@
           </archive>
         </configuration>
       </plugin>
-
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-source-plugin</artifactId>
@@ -120,7 +123,6 @@
           </archive>
         </configuration>
       </plugin>
-
     </plugins>
   </build>
 
